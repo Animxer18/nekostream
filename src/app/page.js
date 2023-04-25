@@ -105,48 +105,49 @@ async function getALData() {
 export default async function Home() {
   const topAiring = await getTopAiring();
   const ALData = await getALData();
+  console.log("top", topAiring);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold sm:text-3xl mb-5">Top Airing Anime</h1>
       <div className="w-full flex flex-wrap gap-4 justify-center">
         {topAiring.results.map((item, id) => {
           return (
-            <Link
-              key={id}
-              href="/"
+            <div
               className="group relative block bg-black w-[90%] md:w-1/5"
+              key={id}
             >
-              {console.log("al", ALData)}
-              <Image
-                alt="Developer"
-                src={
-                  ALData
-                    ? ALData
-                    : "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114535-y3NnjexcqKG1.jpg"
-                }
-                fill
-                className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-              />
-              <div className="relative p-4 sm:p-6 lg:p-8">
-                <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
-                  # {id + 1}
-                </p>
-                <p className="text-xl font-bold text-white sm:text-2xl">
-                  {item.title}
-                </p>
-                <div className="mt-32 sm:mt-48 lg:mt-64">
-                  <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                    {item.genres.map((genre) => {
-                      return (
-                        <span key={id} className="text-sm text-white">
-                          {genre}{" "}
-                        </span>
-                      );
-                    })}
+              <Link href="/">
+                <Image
+                  alt="Developer"
+                  src={
+                    item.image
+                      ? item.image
+                      : "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114535-y3NnjexcqKG1.jpg"
+                  }
+                  fill
+                  className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+                />
+                <div className="relative p-4 sm:p-6 lg:p-8">
+                  <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
+                    # {id + 1}
+                  </p>
+                  <p className="text-xl font-bold text-white sm:text-2xl">
+                    {item.title ? item.title : item.id}
+                  </p>
+                  <div className="mt-32 sm:mt-48 lg:mt-64">
+                    <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                      {item.genres.map((genre) => {
+                        return (
+                          <span key={genre.id} className="text-sm text-white">
+                            {genre}{" "}
+                          </span>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           );
         })}
       </div>
