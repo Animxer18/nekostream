@@ -99,7 +99,6 @@ async function getALData() {
     throw new Error("Failed to fetch data");
   }
   const coverImage = json.data.Media.coverImage.extraLarge;
-  // console.log("ll", coverImage);
   return coverImage;
 }
 
