@@ -125,7 +125,7 @@ export default async function Home() {
                       : "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114535-y3NnjexcqKG1.jpg"
                   }
                   fill
-                  className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+                  className="absolute inset-0 h-full w-full object-cover opacity-[0.5] transition-opacity group-hover:opacity-40"
                 />
                 <div className="relative p-4 sm:p-6 lg:p-8">
                   <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
