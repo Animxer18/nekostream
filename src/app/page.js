@@ -107,6 +107,7 @@ export default async function Home() {
   const topAiring = await getTopAiring();
   const ALData = await getALData();
   console.log("top", topAiring);
+  console.log("ALData", ALData);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-2xl font-bold sm:text-3xl mb-5">Top Airing Anime</h1>
