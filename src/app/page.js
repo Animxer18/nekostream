@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { AL_API, API_URL } from "@/constant/constant";
+import { AL_API, GOGO_API_URL } from "@/constant/constant";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 async function getTopAiring() {
-  const res = await fetch(API_URL + "top-airing", { cache: "no-store" });
+  const res = await fetch(GOGO_API_URL + "top-airing", { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -138,9 +138,9 @@ export default async function Home() {
                   </p>
                   <div className="mt-32 sm:mt-48 lg:mt-64">
                     <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                      {item.genres.map((genre) => {
+                      {item.genres.map((genre, key) => {
                         return (
-                          <span key={genre.id} className="text-sm text-white">
+                          <span key={key} className="text-sm text-white">
                             {genre}{" "}
                           </span>
                         );
