@@ -1,12 +1,13 @@
 import Nav from "@/components/Nav/Nav";
 import "./globals.css";
-import { Lato } from 'next/font/google'
-const aw = Lato({ subsets: ['latin'], weight: '400' })
+import { Lato } from "next/font/google";
 import Footer from "@/components/Footer/Footer";
+import { Desc, Title } from "@/constant/constant";
 
+const aw = Lato({ subsets: ["latin"], weight: "400" });
 export const metadata = {
-  title: "nekostream",
-  description: "A site to watch anime, for free, without any!",
+  title: Title,
+  description: Desc,
 };
 
 export default function RootLayout({ children }) {
