@@ -9,9 +9,9 @@ export default function Card({ item, id }) {
           <Image
             alt="Developer"
             src={
-              item.coverImage
-                ? item.coverImage
-                : "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114535-y3NnjexcqKG1.jpg"
+              item.image
+                ? item.image
+                : "https://gogocdn.net/cover/tate-no-yuusha-no-nariagari-season-3-1698302959.png"
             }
             fill
             className="shrink-0 border-black rounded-2xl absolute inset-0 h-full w-full object-cover opacity-[0.5] transition-opacity group-hover:opacity-20"
@@ -25,8 +25,8 @@ export default function Card({ item, id }) {
             </p>
             <div className="mt-32 sm:mt-48 lg:mt-64">
               <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                {item.genre.map((genre, key) => {
-                  const isLastGenre = key === item.genre.length - 1;
+                {item.genres && item.genres.map((genre, key) => { 
+                  const isLastGenre = key === item.genres.length - 1;
                   return (
                     <span key={key} className="text-sm text-white">
                       {genre}
