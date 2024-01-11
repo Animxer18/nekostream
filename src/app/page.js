@@ -2,7 +2,7 @@ import Card from "@/components/Home/Card";
 import HomeCarousel from "@/components/Home/HomeCarousel";
 
 async function getTopAiring() {
-  const res = await fetch("https://api.consumet.org/anime/gogoanime/top-airing");
+  const res = await fetch("https://animxer-api-cvxg.vercel.app/anime/gogoanime/top-airing");
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
